@@ -3,3 +3,4 @@ uvicorn
 chromadb
 sentence-transformers
 python-dotenv
+gunicorn
