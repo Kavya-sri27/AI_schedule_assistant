@@ -1,0 +1,22 @@
+DEPLOYMENT STATUS
+==================
+
+This build environment (used to write and test the code) has no outbound internet
+access, so I could not push this to a hosting provider and obtain a live public URL
+myself.
+
+The application is fully built and tested end-to-end locally (Flask app, RAG vector
+store, get_schedule + update_schedule tools, agentic routing). See README.md for
+verified example transcripts and exact deploy steps.
+
+To get a public URL (~5 minutes, free tier works):
+1. Push the project folder to a GitHub repo.
+2. Go to https://render.com -> New -> Web Service -> connect the repo.
+   Build command: pip install -r requirements.txt
+   Start command: gunicorn app:app
+3. (Optional but recommended) Add environment variable ANTHROPIC_API_KEY so the
+   agent uses real Claude tool-use reasoning instead of the rule-based fallback.
+4. Deploy. Render assigns a URL like: https://your-app-name.onrender.com
+
+Once deployed, replace this line with your live URL:
+LIVE_URL = <paste your onrender.com / railway.app / hf.space URL here>
